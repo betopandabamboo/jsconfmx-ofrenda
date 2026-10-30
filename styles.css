@@ -1,15 +1,6 @@
-/*
-  TODO 4: Elige el color de tu ofrenda.
-  Cambia el valor de --acento por uno de estos colores o por otro que te guste:
-    Cempasúchil   #FF9F1C
-    Rosa mexicano #FF4FA3
-    Turquesa      #3FD0C2
-    Rojo          #F22727
-    Lila          #B98CFF
-  Ejemplo: --acento: #FF4FA3;
-*/
+/* Verde oliva claro, inspirado en los ojos del gatito. */
 :root {
-  --acento: #FF9F1C;
+  --acento: #B98CFF;
 }
 
 /* A partir de aquí no necesitas cambiar nada, pero puedes explorar */
