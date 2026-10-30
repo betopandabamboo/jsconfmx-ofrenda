@@ -120,6 +120,64 @@ body {
   text-shadow: -4px 4px 0 #F9CA22;
 }
 
+/* Una bola de espejos para el set de Apple. */
+.disco-escena {
+  position: relative;
+  width: 190px;
+  height: 170px;
+  flex-shrink: 0;
+  margin-top: -1.5rem;
+}
+.disco-cadena {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 1px);
+  height: 35px;
+  width: 3px;
+  background: repeating-linear-gradient(to bottom, #c7c0d6 0 5px, #655873 5px 8px);
+}
+.disco-bola {
+  position: absolute;
+  top: 28px;
+  left: 25px;
+  width: 140px;
+  filter: brightness(0.55);
+  transition: filter 1s ease;
+}
+.disco-bola svg { display: block; width: 100%; }
+.disco-destello {
+  position: absolute;
+  color: var(--acento);
+  opacity: 0.18;
+  transition: opacity 1s ease;
+  font-size: 1.75rem;
+}
+.destello-1 { top: 45px; left: 0; }
+.destello-2 { top: 100px; right: 0; }
+.destello-3 { top: 12px; right: 8px; }
+.disco-leyenda {
+  margin: 0 0 1rem;
+  color: var(--acento);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.encendida .disco-bola {
+  filter: brightness(1.1) drop-shadow(0 0 24px rgb(199 204 131 / 0.4));
+  animation: disco-balanceo 6s ease-in-out infinite;
+}
+.encendida .disco-destello { opacity: 1; animation: disco-luz 4s ease-in-out infinite; }
+.encendida .destello-2 { animation-delay: -1.5s; }
+.encendida .destello-3 { animation-delay: -3s; }
+@keyframes disco-balanceo {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+@keyframes disco-luz {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
 /* Altar */
 
 .altar {

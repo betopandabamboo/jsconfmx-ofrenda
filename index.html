@@ -12,33 +12,167 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Papel picado: decoración, no necesitas cambiarlo -->
+    <!-- Papel picado para DJ Apple: gatos, música y discos. -->
     <svg width="0" height="0" class="sr-only" aria-hidden="true">
-      <symbol id="bandera" viewBox="0 0 100 120">
-        <path fill-rule="evenodd" d="M0 0H100V108L92 120 83 108 75 120 67 108 58 120 50 108 42 120 33 108 25 120 17 108 8 120 0 108Z
-          M12 14a3 3 0 1 0 6 0a3 3 0 1 0-6 0z M29 14a3 3 0 1 0 6 0a3 3 0 1 0-6 0z M47 14a3 3 0 1 0 6 0a3 3 0 1 0-6 0z
-          M65 14a3 3 0 1 0 6 0a3 3 0 1 0-6 0z M82 14a3 3 0 1 0 6 0a3 3 0 1 0-6 0z
-          M42 52a8 8 0 1 0 16 0a8 8 0 1 0-16 0z
-          M61 52a7 7 0 1 0 14 0a7 7 0 1 0-14 0z M25 52a7 7 0 1 0 14 0a7 7 0 1 0-14 0z
-          M52 67.6a7 7 0 1 0 14 0a7 7 0 1 0-14 0z M34 67.6a7 7 0 1 0 14 0a7 7 0 1 0-14 0z
-          M52 36.4a7 7 0 1 0 14 0a7 7 0 1 0-14 0z M34 36.4a7 7 0 1 0 14 0a7 7 0 1 0-14 0z
-          M18 82L25 90 18 98 11 90Z M82 82L89 90 82 98 75 90Z M50 86L54 92 50 98 46 92Z" />
-      </symbol>
+      <symbol id="bandera-gato" viewBox="0 0 100 120"><path fill-rule="evenodd" d="M0 0H100V104L90 116 80 104 70 116 60 104 50 116 40 104 30 116 20 104 10 116 0 104Z M12 12h8v5h-8Z M29 12h8v5h-8Z M46 12h8v5h-8Z M63 12h8v5h-8Z M80 12h8v5h-8Z M12 92h76v4H12Z M24 67V33L40 44Q50 40 60 44L76 33V67Q74 84 50 84Q26 84 24 67Z M36 59a4 4 0 1 0 8 0a4 4 0 1 0-8 0Z M56 59a4 4 0 1 0 8 0a4 4 0 1 0-8 0Z M46 70l4 5 4-5Z" /></symbol>
+      <symbol id="bandera-musica" viewBox="0 0 100 120"><path fill-rule="evenodd" d="M0 0H100V104L90 116 80 104 70 116 60 104 50 116 40 104 30 116 20 104 10 116 0 104Z M12 12h8v5h-8Z M29 12h8v5h-8Z M46 12h8v5h-8Z M63 12h8v5h-8Z M80 12h8v5h-8Z M12 92h76v4H12Z M38 35L73 28V69a10 8 0 1 1-5-7V42l-25 5V77a10 8 0 1 1-5-7Z" /></symbol>
+      <symbol id="bandera-disco" viewBox="0 0 100 120"><path fill-rule="evenodd" d="M0 0H100V104L90 116 80 104 70 116 60 104 50 116 40 104 30 116 20 104 10 116 0 104Z M12 12h8v5h-8Z M29 12h8v5h-8Z M46 12h8v5h-8Z M63 12h8v5h-8Z M80 12h8v5h-8Z M12 92h76v4H12Z M20 56a30 30 0 1 0 60 0a30 30 0 1 0-60 0Z M38 56a12 12 0 1 0 24 0a12 12 0 1 0-24 0Z M47 56a3 3 0 1 0 6 0a3 3 0 1 0-6 0Z" /></symbol>
     </svg>
     <div class="papel-picado" aria-hidden="true">
-      <svg class="bandera"><use href="#bandera" /></svg>
-      <svg class="bandera"><use href="#bandera" /></svg>
-      <svg class="bandera"><use href="#bandera" /></svg>
-      <svg class="bandera"><use href="#bandera" /></svg>
-      <svg class="bandera"><use href="#bandera" /></svg>
-      <svg class="bandera"><use href="#bandera" /></svg>
-      <svg class="bandera"><use href="#bandera" /></svg>
-      <svg class="bandera"><use href="#bandera" /></svg>
-      <svg class="bandera"><use href="#bandera" /></svg>
-      <svg class="bandera"><use href="#bandera" /></svg>
+      <svg class="bandera"><use href="#bandera-gato" /></svg>
+      <svg class="bandera"><use href="#bandera-musica" /></svg>
+      <svg class="bandera"><use href="#bandera-disco" /></svg>
+      <svg class="bandera"><use href="#bandera-musica" /></svg>
+      <svg class="bandera"><use href="#bandera-gato" /></svg>
+      <svg class="bandera"><use href="#bandera-disco" /></svg>
+      <svg class="bandera"><use href="#bandera-musica" /></svg>
+      <svg class="bandera"><use href="#bandera-gato" /></svg>
+      <svg class="bandera"><use href="#bandera-disco" /></svg>
+      <svg class="bandera"><use href="#bandera-musica" /></svg>
     </div>
 
     <main id="ofrenda" class="ofrenda">
+      <div class="disco-escena" aria-hidden="true">
+        <span class="disco-cadena"></span>
+        <div class="disco-bola">
+          <svg viewBox="0 0 160 160">
+            <defs>
+              <clipPath id="esfera"><circle cx="80" cy="80" r="74" /></clipPath>
+              <radialGradient id="brillo"><stop stop-color="#fff" stop-opacity="0.8"/><stop offset="0.5" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#110b24" stop-opacity="0.7"/></radialGradient>
+            </defs>
+            <circle cx="80" cy="80" r="75" fill="#25223d" />
+            <g clip-path="url(#esfera)" stroke="#302a48" stroke-width="1.3">
+              <rect x="50.24" y="6.0" width="5.95" height="12.5" fill="#eee8db" />
+              <rect x="56.19" y="6.0" width="5.95" height="12.5" fill="#b7c88b" />
+              <rect x="62.14" y="6.0" width="5.95" height="12.5" fill="#a5b3c5" />
+              <rect x="68.09" y="6.0" width="5.95" height="12.5" fill="#7b8ca3" />
+              <rect x="74.05" y="6.0" width="5.95" height="12.5" fill="#d4c4ef" />
+              <rect x="80.00" y="6.0" width="5.95" height="12.5" fill="#f6e1b8" />
+              <rect x="85.95" y="6.0" width="5.95" height="12.5" fill="#b7c88b" />
+              <rect x="91.91" y="6.0" width="5.95" height="12.5" fill="#eee8db" />
+              <rect x="97.86" y="6.0" width="5.95" height="12.5" fill="#7b8ca3" />
+              <rect x="103.81" y="6.0" width="5.95" height="12.5" fill="#a5b3c5" />
+              <rect x="30.77" y="18.5" width="9.85" height="12.5" fill="#a5b3c5" />
+              <rect x="40.62" y="18.5" width="9.85" height="12.5" fill="#7b8ca3" />
+              <rect x="50.46" y="18.5" width="9.85" height="12.5" fill="#d4c4ef" />
+              <rect x="60.31" y="18.5" width="9.85" height="12.5" fill="#f6e1b8" />
+              <rect x="70.15" y="18.5" width="9.85" height="12.5" fill="#b7c88b" />
+              <rect x="80.00" y="18.5" width="9.85" height="12.5" fill="#eee8db" />
+              <rect x="89.85" y="18.5" width="9.85" height="12.5" fill="#7b8ca3" />
+              <rect x="99.69" y="18.5" width="9.85" height="12.5" fill="#a5b3c5" />
+              <rect x="109.54" y="18.5" width="9.85" height="12.5" fill="#f6e1b8" />
+              <rect x="119.38" y="18.5" width="9.85" height="12.5" fill="#d4c4ef" />
+              <rect x="19.60" y="31.0" width="12.08" height="12.5" fill="#d4c4ef" />
+              <rect x="31.68" y="31.0" width="12.08" height="12.5" fill="#f6e1b8" />
+              <rect x="43.76" y="31.0" width="12.08" height="12.5" fill="#b7c88b" />
+              <rect x="55.84" y="31.0" width="12.08" height="12.5" fill="#eee8db" />
+              <rect x="67.92" y="31.0" width="12.08" height="12.5" fill="#7b8ca3" />
+              <rect x="80.00" y="31.0" width="12.08" height="12.5" fill="#a5b3c5" />
+              <rect x="92.08" y="31.0" width="12.08" height="12.5" fill="#f6e1b8" />
+              <rect x="104.16" y="31.0" width="12.08" height="12.5" fill="#d4c4ef" />
+              <rect x="116.24" y="31.0" width="12.08" height="12.5" fill="#eee8db" />
+              <rect x="128.32" y="31.0" width="12.08" height="12.5" fill="#b7c88b" />
+              <rect x="12.47" y="43.5" width="13.51" height="12.5" fill="#b7c88b" />
+              <rect x="25.97" y="43.5" width="13.51" height="12.5" fill="#eee8db" />
+              <rect x="39.48" y="43.5" width="13.51" height="12.5" fill="#7b8ca3" />
+              <rect x="52.99" y="43.5" width="13.51" height="12.5" fill="#a5b3c5" />
+              <rect x="66.49" y="43.5" width="13.51" height="12.5" fill="#f6e1b8" />
+              <rect x="80.00" y="43.5" width="13.51" height="12.5" fill="#d4c4ef" />
+              <rect x="93.51" y="43.5" width="13.51" height="12.5" fill="#eee8db" />
+              <rect x="107.01" y="43.5" width="13.51" height="12.5" fill="#b7c88b" />
+              <rect x="120.52" y="43.5" width="13.51" height="12.5" fill="#a5b3c5" />
+              <rect x="134.03" y="43.5" width="13.51" height="12.5" fill="#7b8ca3" />
+              <rect x="8.16" y="56.0" width="14.37" height="12.5" fill="#7b8ca3" />
+              <rect x="22.53" y="56.0" width="14.37" height="12.5" fill="#a5b3c5" />
+              <rect x="36.90" y="56.0" width="14.37" height="12.5" fill="#f6e1b8" />
+              <rect x="51.26" y="56.0" width="14.37" height="12.5" fill="#d4c4ef" />
+              <rect x="65.63" y="56.0" width="14.37" height="12.5" fill="#eee8db" />
+              <rect x="80.00" y="56.0" width="14.37" height="12.5" fill="#b7c88b" />
+              <rect x="94.37" y="56.0" width="14.37" height="12.5" fill="#a5b3c5" />
+              <rect x="108.74" y="56.0" width="14.37" height="12.5" fill="#7b8ca3" />
+              <rect x="123.10" y="56.0" width="14.37" height="12.5" fill="#d4c4ef" />
+              <rect x="137.47" y="56.0" width="14.37" height="12.5" fill="#f6e1b8" />
+              <rect x="6.19" y="68.5" width="14.76" height="12.5" fill="#f6e1b8" />
+              <rect x="20.95" y="68.5" width="14.76" height="12.5" fill="#d4c4ef" />
+              <rect x="35.71" y="68.5" width="14.76" height="12.5" fill="#eee8db" />
+              <rect x="50.47" y="68.5" width="14.76" height="12.5" fill="#b7c88b" />
+              <rect x="65.24" y="68.5" width="14.76" height="12.5" fill="#a5b3c5" />
+              <rect x="80.00" y="68.5" width="14.76" height="12.5" fill="#7b8ca3" />
+              <rect x="94.76" y="68.5" width="14.76" height="12.5" fill="#d4c4ef" />
+              <rect x="109.53" y="68.5" width="14.76" height="12.5" fill="#f6e1b8" />
+              <rect x="124.29" y="68.5" width="14.76" height="12.5" fill="#b7c88b" />
+              <rect x="139.05" y="68.5" width="14.76" height="12.5" fill="#eee8db" />
+              <rect x="6.36" y="81.0" width="14.73" height="12.5" fill="#eee8db" />
+              <rect x="21.08" y="81.0" width="14.73" height="12.5" fill="#b7c88b" />
+              <rect x="35.81" y="81.0" width="14.73" height="12.5" fill="#a5b3c5" />
+              <rect x="50.54" y="81.0" width="14.73" height="12.5" fill="#7b8ca3" />
+              <rect x="65.27" y="81.0" width="14.73" height="12.5" fill="#d4c4ef" />
+              <rect x="80.00" y="81.0" width="14.73" height="12.5" fill="#f6e1b8" />
+              <rect x="94.73" y="81.0" width="14.73" height="12.5" fill="#b7c88b" />
+              <rect x="109.46" y="81.0" width="14.73" height="12.5" fill="#eee8db" />
+              <rect x="124.19" y="81.0" width="14.73" height="12.5" fill="#7b8ca3" />
+              <rect x="138.92" y="81.0" width="14.73" height="12.5" fill="#a5b3c5" />
+              <rect x="8.68" y="93.5" width="14.26" height="12.5" fill="#a5b3c5" />
+              <rect x="22.95" y="93.5" width="14.26" height="12.5" fill="#7b8ca3" />
+              <rect x="37.21" y="93.5" width="14.26" height="12.5" fill="#d4c4ef" />
+              <rect x="51.47" y="93.5" width="14.26" height="12.5" fill="#f6e1b8" />
+              <rect x="65.74" y="93.5" width="14.26" height="12.5" fill="#b7c88b" />
+              <rect x="80.00" y="93.5" width="14.26" height="12.5" fill="#eee8db" />
+              <rect x="94.26" y="93.5" width="14.26" height="12.5" fill="#7b8ca3" />
+              <rect x="108.53" y="93.5" width="14.26" height="12.5" fill="#a5b3c5" />
+              <rect x="122.79" y="93.5" width="14.26" height="12.5" fill="#f6e1b8" />
+              <rect x="137.05" y="93.5" width="14.26" height="12.5" fill="#d4c4ef" />
+              <rect x="13.40" y="106.0" width="13.32" height="12.5" fill="#d4c4ef" />
+              <rect x="26.72" y="106.0" width="13.32" height="12.5" fill="#f6e1b8" />
+              <rect x="40.04" y="106.0" width="13.32" height="12.5" fill="#b7c88b" />
+              <rect x="53.36" y="106.0" width="13.32" height="12.5" fill="#eee8db" />
+              <rect x="66.68" y="106.0" width="13.32" height="12.5" fill="#7b8ca3" />
+              <rect x="80.00" y="106.0" width="13.32" height="12.5" fill="#a5b3c5" />
+              <rect x="93.32" y="106.0" width="13.32" height="12.5" fill="#f6e1b8" />
+              <rect x="106.64" y="106.0" width="13.32" height="12.5" fill="#d4c4ef" />
+              <rect x="119.96" y="106.0" width="13.32" height="12.5" fill="#eee8db" />
+              <rect x="133.28" y="106.0" width="13.32" height="12.5" fill="#b7c88b" />
+              <rect x="21.06" y="118.5" width="11.79" height="12.5" fill="#b7c88b" />
+              <rect x="32.85" y="118.5" width="11.79" height="12.5" fill="#eee8db" />
+              <rect x="44.64" y="118.5" width="11.79" height="12.5" fill="#7b8ca3" />
+              <rect x="56.43" y="118.5" width="11.79" height="12.5" fill="#a5b3c5" />
+              <rect x="68.21" y="118.5" width="11.79" height="12.5" fill="#f6e1b8" />
+              <rect x="80.00" y="118.5" width="11.79" height="12.5" fill="#d4c4ef" />
+              <rect x="91.79" y="118.5" width="11.79" height="12.5" fill="#eee8db" />
+              <rect x="103.57" y="118.5" width="11.79" height="12.5" fill="#b7c88b" />
+              <rect x="115.36" y="118.5" width="11.79" height="12.5" fill="#a5b3c5" />
+              <rect x="127.15" y="118.5" width="11.79" height="12.5" fill="#7b8ca3" />
+              <rect x="33.11" y="131.0" width="9.38" height="12.5" fill="#7b8ca3" />
+              <rect x="42.49" y="131.0" width="9.38" height="12.5" fill="#a5b3c5" />
+              <rect x="51.87" y="131.0" width="9.38" height="12.5" fill="#f6e1b8" />
+              <rect x="61.25" y="131.0" width="9.38" height="12.5" fill="#d4c4ef" />
+              <rect x="70.62" y="131.0" width="9.38" height="12.5" fill="#eee8db" />
+              <rect x="80.00" y="131.0" width="9.38" height="12.5" fill="#b7c88b" />
+              <rect x="89.38" y="131.0" width="9.38" height="12.5" fill="#a5b3c5" />
+              <rect x="98.75" y="131.0" width="9.38" height="12.5" fill="#7b8ca3" />
+              <rect x="108.13" y="131.0" width="9.38" height="12.5" fill="#d4c4ef" />
+              <rect x="117.51" y="131.0" width="9.38" height="12.5" fill="#f6e1b8" />
+              <rect x="55.28" y="143.5" width="4.94" height="12.5" fill="#f6e1b8" />
+              <rect x="60.23" y="143.5" width="4.94" height="12.5" fill="#d4c4ef" />
+              <rect x="65.17" y="143.5" width="4.94" height="12.5" fill="#eee8db" />
+              <rect x="70.11" y="143.5" width="4.94" height="12.5" fill="#b7c88b" />
+              <rect x="75.06" y="143.5" width="4.94" height="12.5" fill="#a5b3c5" />
+              <rect x="80.00" y="143.5" width="4.94" height="12.5" fill="#7b8ca3" />
+              <rect x="84.94" y="143.5" width="4.94" height="12.5" fill="#d4c4ef" />
+              <rect x="89.89" y="143.5" width="4.94" height="12.5" fill="#f6e1b8" />
+              <rect x="94.83" y="143.5" width="4.94" height="12.5" fill="#b7c88b" />
+              <rect x="99.77" y="143.5" width="4.94" height="12.5" fill="#eee8db" />
+            </g>
+            <circle cx="80" cy="80" r="74" fill="url(#brillo)" />
+            <path d="M48 26v24M36 38h24M115 91v16M107 99h16" stroke="#fff9e9" stroke-width="3" stroke-linecap="round" />
+          </svg>
+        </div>
+        <span class="disco-destello destello-1">✦</span>
+        <span class="disco-destello destello-2">✧</span>
+        <span class="disco-destello destello-3">♪</span>
+      </div>
+      <p class="disco-leyenda">El set de Apple · Rawayana entre las estrellas</p>
+
       <h1 class="titulo">Gatita Apple!</h1>
 
       <div class="altar">
