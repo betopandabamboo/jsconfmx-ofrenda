@@ -190,9 +190,9 @@ body {
   z-index: 2;
   display: grid;
   place-items: center;
-  width: min(34rem, 100%);
-  min-height: 7.5rem;
-  padding: 1.25rem 1.5rem;
+  width: 100%;
+  min-height: 5rem;
+  padding: 1rem 1.25rem;
   border: 2px dashed rgb(251 235 211 / 0.22);
   border-radius: 14px;
   transition: border-color 0.8s ease, background-color 0.8s ease, box-shadow 0.8s ease;
@@ -210,9 +210,9 @@ body {
 }
 
 .texto-dedicatoria {
-  max-width: 34ch;
-  font-size: clamp(1.15rem, 3.2vw, 1.35rem);
-  line-height: 1.6;
+  max-width: 52ch;
+  font-size: clamp(1.05rem, 2.8vw, 1.25rem);
+  line-height: 1.45;
   opacity: 0;
   transform: translateY(8px);
   visibility: hidden;
@@ -522,6 +522,103 @@ body {
   25% { transform: scale(1.04, 0.96) rotate(-2deg); }
   50% { transform: scale(0.97, 1.05) rotate(1.5deg); }
   75% { transform: scale(1.02, 0.98) rotate(-1deg); }
+}
+
+/* Cabina independiente, debajo del altar para dejar visibles las flores. */
+.cabina {
+  position: relative;
+  z-index: 4;
+  width: min(330px, 85%);
+  margin: 2.75rem 0 0;
+}
+.cabina-panel {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 2px solid #a49bba;
+  border-bottom: 7px solid #554666;
+  border-radius: 9px 9px 5px 5px;
+  background: linear-gradient(145deg, #393046, #181121);
+  box-shadow: 0 5px 12px rgb(0 0 0 / 0.4);
+}
+.tornamesa { position: relative; aspect-ratio: 1; width: 100%; padding: 0; border: 0; border-radius: 50%; background: transparent; cursor: grab; touch-action: none; }
+.tornamesa:active { cursor: grabbing; }
+.tornamesa:focus-visible { outline: 3px solid var(--acento); outline-offset: 4px; }
+.tornamesa.rayando .vinilo { animation: none; transform: rotate(var(--giro, 0deg)); }
+.cabina-ayuda { margin: 0.75rem 0 0; color: var(--cera); opacity: 0.7; font-size: 0.75rem; text-align: center; }
+.vinilo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #17121d 0 4%, var(--acento) 5% 19%, #241b31 20% 22%, transparent 23%),
+    repeating-radial-gradient(circle, #151019 0 3px, #352c40 4px 5px);
+  border: 2px solid #766680;
+}
+.vinilo::after {
+  content: "";
+  display: block;
+  width: 25%;
+  height: 2px;
+  margin: 25% 0 0 15%;
+  background: #b2a4c5;
+  rotate: -35deg;
+}
+.brazo {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 6px;
+  height: 55%;
+  border-radius: 4px;
+  background: #ded2bd;
+  transform: rotate(25deg);
+  transform-origin: top;
+  box-shadow: 1px 1px 3px #000;
+}
+.mezcladora { display: grid; justify-items: center; gap: 7px; }
+.cabina-nombre, .cabina-artista {
+  font-size: clamp(0.45rem, 1.8vw, 0.65rem);
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  color: var(--cera);
+}
+.cabina-artista { color: var(--acento); font-size: clamp(0.4rem, 1.5vw, 0.55rem); }
+.ecualizador { display: flex; align-items: flex-end; gap: 4px; height: 24px; }
+.ecualizador i { width: 5px; height: 100%; background: var(--acento); opacity: 0.25; transform: scaleY(0.2); transform-origin: bottom; }
+.controles { display: flex; gap: 8px; }
+.controles i { width: 7px; height: 7px; background: #c5b3d8; border-radius: 50%; }
+.notas-musicales { position: absolute; inset: 0; pointer-events: none; }
+.notas-musicales span {
+  position: absolute;
+  bottom: 40%;
+  left: 5%;
+  font-size: 1.8rem;
+  color: var(--acento);
+  opacity: 0;
+}
+.notas-musicales span:nth-child(2) { --deriva: -35px; left: 25%; animation-delay: -1.6s; color: #B98CFF; }
+.notas-musicales span:nth-child(3) { left: 50%; animation-delay: -3.2s; }
+.notas-musicales span:nth-child(4) { --deriva: 35px; left: 75%; animation-delay: -0.8s; color: #FF4FA3; }
+.notas-musicales span:nth-child(5) { left: 90%; animation-delay: -2.4s; }
+.encendida .vinilo { animation: disco-girar 5s linear infinite; }
+.encendida .ecualizador i { opacity: 1; animation: niveles-musica 1.2s ease-in-out infinite alternate; }
+.encendida .ecualizador i:nth-child(2n) { animation-delay: -0.7s; }
+.encendida .ecualizador i:nth-child(3n) { animation-delay: -0.4s; }
+.encendida .notas-musicales span { animation-name: notas-flotar; animation-duration: 8s; animation-timing-function: linear; animation-iteration-count: infinite; }
+@keyframes disco-girar { to { transform: rotate(360deg); } }
+@keyframes niveles-musica { from { transform: scaleY(0.25); } to { transform: scaleY(1); } }
+@keyframes notas-flotar {
+  0% { opacity: 0; transform: translate(0, 0) rotate(-10deg); }
+  15%, 70% { opacity: 0.85; }
+  100% { opacity: 0; transform: translate(var(--deriva, 12px), calc(-1 * var(--recorrido-notas, 650px))) rotate(15deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .encendida .notas-musicales span { opacity: 0.75; transform: translateY(-65px); }
+  .encendida .ecualizador i { transform: scaleY(0.7); }
 }
 
 @media (prefers-reduced-motion: reduce) {
