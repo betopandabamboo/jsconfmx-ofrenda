@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500">
+  <rect width="400" height="500" fill="#2C1A4A"/>
+  <rect x="24" y="24" width="352" height="452" rx="10" fill="none" stroke="#FBEBD3" stroke-opacity="0.35" stroke-width="4" stroke-dasharray="14 10"/>
+  <g transform="translate(200 210)">
+    <circle r="62" fill="#F27410"/>
+    <circle r="48" fill="#FF9F1C"/>
+    <circle r="30" fill="#F27410"/>
+    <circle r="14" fill="#FFD86B"/>
+  </g>
+  <text x="200" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#FBEBD3">Tu foto aquí</text>
+</svg>

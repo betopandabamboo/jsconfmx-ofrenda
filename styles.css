@@ -1,0 +1,489 @@
+/*
+  TODO 4: Elige el color de tu ofrenda.
+  Cambia el valor de --acento por uno de estos colores o por otro que te guste:
+    Cempasúchil   #FF9F1C
+    Rosa mexicano #FF4FA3
+    Turquesa      #3FD0C2
+    Rojo          #F22727
+    Lila          #B98CFF
+  Ejemplo: --acento: #FF4FA3;
+*/
+:root {
+  --acento: #FF9F1C;
+}
+
+/* A partir de aquí no necesitas cambiar nada, pero puedes explorar */
+:root {
+  --noche: #1E1033;
+  --noche-clara: #2C1A4A;
+  --cera: #FBEBD3;
+  --cempasuchil: #FF9F1C;
+  --rosa: #E4007C;
+  --turquesa: #1FB5A8;
+  --morado: #7B2FBE;
+  --morado-profundo: #3A1B66;
+
+  --fuente-titulo: "Chango", "Arial Black", sans-serif;
+  --fuente-texto: "Work Sans", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(120% 70% at 50% 110%, var(--morado-profundo), transparent 70%),
+    var(--noche);
+  color: var(--cera);
+  font-family: var(--fuente-texto);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/* Papel picado */
+
+.papel-picado {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: clamp(0.35rem, 1vw, 0.75rem);
+  padding-top: 12px;
+  overflow: hidden;
+}
+
+.papel-picado::before {
+  content: "";
+  position: absolute;
+  inset: 12px 0 auto;
+  height: 2px;
+  background: rgb(251 235 211 / 0.35);
+}
+
+.bandera {
+  flex: 0 0 auto;
+  width: clamp(54px, 8.5vw, 88px);
+  aspect-ratio: 100 / 120;
+  transform-origin: 50% 0;
+  animation: mecerse 7s ease-in-out infinite alternate;
+}
+
+.bandera:nth-child(5n + 1) { fill: var(--rosa); }
+.bandera:nth-child(5n + 2) { fill: var(--cempasuchil); animation-delay: -2s; }
+.bandera:nth-child(5n + 3) { fill: var(--turquesa); animation-delay: -4s; }
+.bandera:nth-child(5n + 4) { fill: #9B5DE5; animation-delay: -1s; }
+.bandera:nth-child(5n + 5) { fill: #FFD23F; animation-delay: -3s; }
+
+@keyframes mecerse {
+  from { transform: rotate(-2.5deg); }
+  to { transform: rotate(2.5deg); }
+}
+
+/* Página */
+
+.ofrenda {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: clamp(1.5rem, 5vw, 3rem) 1.25rem 2rem;
+  text-align: center;
+}
+
+/* Luz cálida que llena la página cuando la vela está encendida */
+.ofrenda::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(55% 45% at 50% 62%, rgb(255 150 50 / 0.24), transparent 72%);
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+
+.titulo {
+  max-width: 14ch;
+  margin: 0;
+  font-family: var(--fuente-titulo);
+  font-size: clamp(2.5rem, 8.5vw, 5.25rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--acento);
+  text-wrap: balance;
+  text-shadow: -4px 4px 0 #F9CA22;
+}
+
+/* Altar */
+
+.altar {
+  width: min(640px, 100%);
+  margin-top: clamp(1.75rem, 5vw, 2.75rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dedicatoria {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: min(34rem, 100%);
+  min-height: 7.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 2px dashed rgb(251 235 211 / 0.22);
+  border-radius: 14px;
+  transition: border-color 0.8s ease, background-color 0.8s ease, box-shadow 0.8s ease;
+}
+
+.dedicatoria > p {
+  grid-area: 1 / 1;
+  margin: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.pista {
+  color: rgb(251 235 211 / 0.6);
+  font-style: italic;
+}
+
+.texto-dedicatoria {
+  max-width: 34ch;
+  font-size: clamp(1.15rem, 3.2vw, 1.35rem);
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(8px);
+  visibility: hidden;
+}
+
+/* Vela principal */
+
+.centro {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(0.75rem, 3vw, 1.25rem);
+  margin-top: 4.5rem;
+}
+
+/* Foto opcional junto a la vela */
+.retrato {
+  position: relative;
+  z-index: 1;
+  width: clamp(84px, 22vw, 116px);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 5px solid var(--acento);
+  border-radius: 6px;
+  outline: 2px solid rgb(251 235 211 / 0.6);
+  outline-offset: 3px;
+  box-shadow: 0 10px 24px rgb(0 0 0 / 0.45);
+  rotate: -3deg;
+  filter: brightness(0.55) saturate(0.7);
+  transition: filter 1s ease;
+}
+
+.vela {
+  position: relative;
+  width: 38px;
+  height: 104px;
+}
+
+.vela::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 60px;
+  width: 360px;
+  height: 360px;
+  translate: -50% 50%;
+  background: radial-gradient(circle, rgb(255 190 90 / 0.4), rgb(255 120 30 / 0.12) 40%, transparent 68%);
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+
+.cera {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px 8px 3px 3px;
+  background: linear-gradient(90deg, #D9BE95, #FFF6E6 38%, #F1DDBC 62%, #C9AA7E);
+}
+
+/* Mecha */
+.cera::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  width: 3px;
+  height: 12px;
+  translate: -50% 0;
+  border-radius: 2px;
+  background: #3B2A22;
+}
+
+/* Gota de cera */
+.cera::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 7px;
+  width: 7px;
+  height: 22px;
+  border-radius: 0 0 6px 6px;
+  background: #FFF6E6;
+}
+
+.llama {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 2px);
+  width: 24px;
+  height: 46px;
+  translate: -50% 0;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: radial-gradient(ellipse 50% 60% at 50% 72%, #FFFFFF 0 18%, #FFE68A 34%, #FFA41F 62%, rgb(255 90 0 / 0) 78%);
+  filter: drop-shadow(0 0 12px rgb(255 170 60 / 0.9));
+  transform: scale(0);
+  transform-origin: 50% 92%;
+  transition: transform 0.6s cubic-bezier(0.2, 1.4, 0.4, 1);
+}
+
+/* Niveles del altar */
+
+.nivel {
+  position: relative;
+  height: clamp(44px, 9vw, 60px);
+  border-radius: 4px 4px 0 0;
+}
+
+/* Superficie superior de cada nivel */
+.nivel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 8px;
+  border-radius: 4px 4px 0 0;
+  background: rgb(255 255 255 / 0.18);
+}
+
+/* Orilla de tela recortada */
+.nivel::after {
+  content: "";
+  position: absolute;
+  inset: 100% 0 auto;
+  height: 10px;
+  background: radial-gradient(circle at 50% 0, var(--tela) 0 7px, transparent 7.5px) 0 0 / 16px 10px repeat-x;
+}
+
+.nivel-1 {
+  --tela: var(--acento);
+  z-index: 3;
+  width: 48%;
+  background: var(--tela);
+}
+
+.nivel-2 {
+  --tela: var(--morado);
+  z-index: 2;
+  width: 72%;
+  background: var(--tela);
+}
+
+.nivel-3 {
+  --tela: var(--morado-profundo);
+  z-index: 1;
+  width: 96%;
+  background: var(--tela);
+}
+
+/* Flores de cempasúchil */
+
+.flor {
+  position: absolute;
+  bottom: calc(100% - 10px);
+  width: var(--tamano, 40px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, #FFD86B 0 16%, transparent 17%),
+    radial-gradient(circle, transparent 0 40%, rgb(150 40 0 / 0.25) 41% 43%, transparent 44%),
+    repeating-conic-gradient(#FF9F1C 0 12deg, #F27410 12deg 24deg);
+  box-shadow: inset 0 -5px 8px rgb(110 25 0 / 0.45);
+}
+
+.flor-a { left: -6%; --tamano: 46px; }
+.flor-b { left: 9%; --tamano: 34px; }
+.flor-c { right: 9%; --tamano: 34px; }
+.flor-d { right: -6%; --tamano: 46px; }
+
+.flor-e { left: 1%; --tamano: 36px; }
+.flor-f { left: 7.5%; --tamano: 28px; }
+.flor-g { right: 7.5%; --tamano: 28px; }
+.flor-h { right: 1%; --tamano: 36px; }
+
+/* Veladoras */
+
+.veladora {
+  position: absolute;
+  bottom: calc(100% - 6px);
+  width: 18px;
+  height: 26px;
+  border-radius: 3px 3px 5px 5px;
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.25), rgb(251 235 211 / 0.85) 30%);
+  box-shadow: inset 0 0 0 2px rgb(255 79 163 / 0.55);
+}
+
+.veladora::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 1px);
+  width: 9px;
+  height: 16px;
+  translate: -50% 0;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: radial-gradient(ellipse 50% 60% at 50% 72%, #FFFFFF 0 15%, #FFD86B 40%, #FF9F1C 70%, transparent 80%);
+  filter: drop-shadow(0 0 6px rgb(255 170 60 / 0.9));
+  transform: scale(0);
+  transform-origin: 50% 90%;
+  transition: transform 0.4s ease var(--retraso, 0s);
+}
+
+.veladora:nth-child(1) { left: 3%; --retraso: 0.35s; }
+.veladora:nth-child(2) { left: 10%; --retraso: 0.15s; }
+.veladora:nth-child(3) { right: 10%; --retraso: 0.25s; }
+.veladora:nth-child(4) { right: 3%; --retraso: 0.45s; }
+
+/* En pantallas pequeñas, menos flores y veladoras para que no se encimen */
+@media (max-width: 480px) {
+  .flor-b,
+  .flor-c,
+  .flor-f,
+  .flor-g,
+  .veladora:nth-child(2),
+  .veladora:nth-child(3) {
+    display: none;
+  }
+
+  .flor-a,
+  .flor-d { --tamano: 40px; }
+
+  .flor-e,
+  .flor-h { --tamano: 30px; }
+
+  .veladora:nth-child(1) { left: 6%; }
+  .veladora:nth-child(4) { right: 6%; }
+}
+
+/* Botón */
+
+.boton {
+  margin-top: clamp(2rem, 6vw, 2.75rem);
+  padding: 0.9em 1.9em;
+  border: 2px solid var(--acento);
+  border-radius: 999px;
+  background: var(--acento);
+  color: var(--noche);
+  font: 600 1.125rem/1 var(--fuente-texto);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.15s ease;
+}
+
+.boton:hover {
+  transform: translateY(-1px);
+}
+
+.boton:active {
+  transform: translateY(1px);
+}
+
+.boton:focus-visible {
+  outline: 3px solid var(--cera);
+  outline-offset: 4px;
+}
+
+.pie {
+  padding: 1.5rem 1.25rem 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgb(251 235 211 / 0.55);
+}
+
+/* Estado encendido: script.js agrega la clase "encendida" a la ofrenda */
+
+.encendida::before,
+.encendida .vela::before {
+  opacity: 1;
+}
+
+.encendida .llama {
+  transform: scale(1);
+  animation: parpadeo 2.4s ease-in-out 0.6s infinite;
+}
+
+.encendida .veladora::before {
+  transform: scale(1);
+}
+
+.encendida .retrato {
+  filter: none;
+}
+
+.encendida .dedicatoria {
+  border-style: solid;
+  border-color: var(--acento);
+  background-color: rgb(255 255 255 / 0.05);
+  box-shadow: 0 0 40px rgb(255 160 60 / 0.18);
+}
+
+.encendida .pista {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.encendida .texto-dedicatoria {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  transition-delay: 0.35s;
+}
+
+.encendida .boton {
+  background: transparent;
+  color: var(--acento);
+}
+
+@keyframes parpadeo {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.04, 0.96) rotate(-2deg); }
+  50% { transform: scale(0.97, 1.05) rotate(1.5deg); }
+  75% { transform: scale(1.02, 0.98) rotate(-1deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+}
