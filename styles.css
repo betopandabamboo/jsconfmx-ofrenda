@@ -50,6 +50,7 @@ body {
 
 .papel-picado {
   position: relative;
+  z-index: 2;
   display: flex;
   justify-content: center;
   gap: clamp(0.35rem, 1vw, 0.75rem);
@@ -91,7 +92,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: clamp(1.5rem, 5vw, 3rem) 1.25rem 2rem;
+  padding: 0.75rem 1.25rem 2rem;
   text-align: center;
 }
 
@@ -108,8 +109,10 @@ body {
 }
 
 .titulo {
+  position: relative;
+  z-index: 1;
   max-width: 14ch;
-  margin: 0;
+  margin: -0.375rem 0 0;
   font-family: var(--fuente-titulo);
   font-size: clamp(2.5rem, 8.5vw, 5.25rem);
   font-weight: 400;
@@ -126,6 +129,7 @@ body {
   width: 190px;
   height: 170px;
   flex-shrink: 0;
+  /* Acerca la esfera al papel picado sin cambiar su tamaño. */
   margin-top: -1.5rem;
 }
 .disco-cadena {
@@ -155,13 +159,6 @@ body {
 .destello-1 { top: 45px; left: 0; }
 .destello-2 { top: 100px; right: 0; }
 .destello-3 { top: 12px; right: 8px; }
-.disco-leyenda {
-  margin: 0 0 1rem;
-  color: var(--acento);
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
 .encendida .disco-bola {
   filter: brightness(1.1) drop-shadow(0 0 24px rgb(199 204 131 / 0.4));
   animation: disco-balanceo 6s ease-in-out infinite;
